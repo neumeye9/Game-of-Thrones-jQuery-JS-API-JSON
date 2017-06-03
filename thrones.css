@@ -1,0 +1,46 @@
+/*CSS Reset Settings*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#wrapper{
+    width: 1000px;
+    height: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: gray;
+    border: 3px solid black;
+}
+#houses{
+    margin-left: 130px;
+}
+img{
+    width: 180px;
+    text-align: center;
+    padding-right: 5px;
+}
+.edit{
+    width: 180px;
+    height: 100px;
+}
+h1{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#about{
+    border: 10px solid black;
+    width: 600px;
+    height: 400px;
+    margin-left: 200px;
+    margin-top: 50px;
+}
+p{
+    margin-bottom: 20px;
+    font-size: 36px;
+    margin-left: 10px;
+}
+ul{
+    font-size: 24px;
+    margin-left: 40px;
+}

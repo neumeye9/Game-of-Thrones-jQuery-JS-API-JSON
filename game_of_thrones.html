@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Game of Thrones</title>
+        <link rel="stylesheet" href="thrones.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        
+        $(document).ready(function(){
+
+            console.log('Game of Thrones Rocks!');
+
+            $('img').click(function(){
+                var id =$(this).attr('data-house');
+
+                console.log('click', $(this).attr('data-house'));
+                console.log(id);
+
+                var url= "https://anapioficeandfire.com/api/houses/" + id;
+
+                $.get(url,function(res){
+                    console.log(res);
+
+                    var name = res.name;
+                    var words = res.words;
+                    var titles = res.titles; /*this is an array*/
+
+                    var entry = `<div id="entry">
+                                <h1>Name: ${name}</h1>
+                                <p><b>Words:</b>${words}</p>
+                                <p><b>Titles:</b></p>`
+
+                                entry += `<ul>
+                                            <li>${titles[0]}</li>`;
+
+                                        if(titles[1]){
+                                            entry+= `<li>${titles[1]}</li>`;
+                                        }
+                                        entry+= `<ul></div>`;
+                    
+                    $('#about').html(entry);
+                                           
+                }, 'json');
+
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Game of Thrones</h1>
+            <div id="houses">
+                <img name="ambrose1" data-house="4" src="http://media.moddb.com/images/members/1/123/122021/profile/c9lzmv4d3mgzpnyntz7s.jpg" alt="House Ambrose1">
+                <img name="arryn" data-house="7" src="https://s-media-cache-ak0.pinimg.com/originals/e8/20/31/e820318de1dfb37a3602e7b577b34d74.jpg" alt="House Arryn" class="edit">
+                <img name="ashford" data-house="8" src="https://s-media-cache-ak0.pinimg.com/originals/50/41/1b/50411ba1bfc468543526fea2561caf04.jpg" alt="House Ashford" class="edit">
+                <img name="ambrose2" data-house="4" src="https://qph.ec.quoracdn.net/main-qimg-c116dd5581ada23b5ef8cd53ba0ae030-c" alt="House Ambrose2">
+            </div>
+            <div id="about">
+            </div>
+        </div>
+    </body>
+</html>
